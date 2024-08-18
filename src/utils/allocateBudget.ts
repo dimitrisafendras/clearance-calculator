@@ -12,8 +12,8 @@ export function allocateBudget(
     const totalCappedSalaries = cappedSalary1 + cappedSalary2;
 
     // Allocate budget based on the capped salaries
-    const allocation1 = Math.min(Math.round((cappedSalary1 / totalCappedSalaries) * totalBudget), cappedSalary1);
-    const allocation2 = Math.min(Math.round((cappedSalary2 / totalCappedSalaries) * totalBudget), cappedSalary2);
+    const allocation1 = Math.round((cappedSalary1 / totalCappedSalaries) * totalBudget)
+    const allocation2 = Math.round((cappedSalary2 / totalCappedSalaries) * totalBudget)
     const difference = allocation1 - allocation2;
 
     return {
