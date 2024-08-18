@@ -3,8 +3,8 @@ import './App.css'
 import {allocateBudget} from "./utils/allocateBudget.ts";
 
 function App() {
-    const [salary1, setSalary1] = useState(0);
-    const [salary2, setSalary2] = useState(0);
+    const [salary1, setSalary1] = useState(2000);
+    const [salary2, setSalary2] = useState(2000);
     const [totalBudget, setTotalBudget] = useState(1600); // Default to 1600
     const [cap, setCap] = useState(2000); // Default to 2000
 

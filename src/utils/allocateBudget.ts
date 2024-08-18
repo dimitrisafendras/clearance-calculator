@@ -4,20 +4,22 @@ export function allocateBudget(
     totalBudget: number,
     cap: number
 ): { allocation1: number, allocation2: number, difference: number, clearanceMessage: string } {
-    // Calculate the proportion of the total budget for each salary
-    const totalSalaries = salary1 + salary2;
+    // Cap the salaries
+    const cappedSalary1 = Math.min(salary1, cap);
+    const cappedSalary2 = Math.min(salary2, cap);
 
-    // Allocate budget for salary1 and salary2, and round the result
-    const allocation1 = Math.min(Math.round((salary1 / totalSalaries) * totalBudget), salary1, cap);
-    const allocation2 = Math.min(Math.round((salary2 / totalSalaries) * totalBudget), salary2, cap);
+    // Calculate the total of the capped salaries
+    const totalCappedSalaries = cappedSalary1 + cappedSalary2;
 
-    // Calculate the difference for clearance
+    // Allocate budget based on the capped salaries
+    const allocation1 = Math.min(Math.round((cappedSalary1 / totalCappedSalaries) * totalBudget), cappedSalary1);
+    const allocation2 = Math.min(Math.round((cappedSalary2 / totalCappedSalaries) * totalBudget), cappedSalary2);
     const difference = allocation1 - allocation2;
 
     return {
-        allocation1: allocation1,
-        allocation2: allocation2,
-        difference: difference,
+        allocation1,
+        allocation2,
+        difference,
         clearanceMessage: difference > 0 ?
             `Dimitris owes Polina €${Math.abs(difference)}` :
             `Polina owes Dimitris €${Math.abs(difference)}`
