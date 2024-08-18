@@ -19,7 +19,7 @@ export function allocateBudget(
         allocation2: allocation2,
         difference: difference,
         clearanceMessage: difference > 0 ?
-            `Person 1 owes Person 2 ${Math.abs(difference)}` :
-            `Person 2 owes Person 1 ${Math.abs(difference)}`
+            `Dimitris owes Polina €${Math.abs(difference)}` :
+            `Polina owes Dimitris €${Math.abs(difference)}`
     };
 }
