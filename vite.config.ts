@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/https://dimitrisafendras.github.io/clearance-calculator/',
+  base: 'dimitrisafendras.github.io/clearance-calculator/',
   plugins: [react()],
 })
